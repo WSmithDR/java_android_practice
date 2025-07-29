@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">java_android_practice</string>
+    <string name="name">Name: </string>
+    <string name="age">Age: </string>
 </resources>
