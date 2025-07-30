@@ -2,65 +2,140 @@ package com.example.java_android_practice;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.java_android_practice.databinding.ActivityMainBinding;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText editName;
+    private EditText editAge;
+    private RadioGroup grupoGeneros;
+    private Spinner spRol;
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
+    public EditText getEditName() {
+        return editName;
+    }
+
+    public void setEditName(EditText editName) {
+        this.editName = editName;
+    }
+
+    public EditText getEditAge() {
+        return editAge;
+    }
+
+    public void setEditAge(EditText editAge) {
+        this.editAge = editAge;
+    }
+
+    public RadioGroup getGrupoGeneros() {
+        return grupoGeneros;
+    }
+
+    public void setGrupoGeneros(RadioGroup grupoGeneros) {
+        this.grupoGeneros = grupoGeneros;
+    }
+
+    public Spinner getSpRol() {
+        return spRol;
+    }
+
+    public void setSpRol(Spinner spRol) {
+        this.spRol = spRol;
+    }
+
+    public CheckBox getCkterminos() {
+        return ckterminos;
+    }
+
+    public void setCkterminos(CheckBox ckterminos) {
+        this.ckterminos = ckterminos;
+    }
+
+    public CheckBox getCkpromociones() {
+        return ckpromociones;
+    }
+
+    public void setCkpromociones(CheckBox ckpromociones) {
+        this.ckpromociones = ckpromociones;
+    }
+
+    public Button getBtnCrear() {
+        return btnCrear;
+    }
+
+    public void setBtnCrear(Button btnCrear) {
+        this.btnCrear = btnCrear;
+    }
+
+    public Button getBtnClear() {
+        return btnClear;
+    }
+
+    public void setBtnClear(Button btnClear) {
+        this.btnClear = btnClear;
+    }
+
+    public Button getBtnMostrar() {
+        return btnMostrar;
+    }
+
+    public void setBtnMostrar(Button btnMostrar) {
+        this.btnMostrar = btnMostrar;
+    }
+
+    private CheckBox ckterminos;
+    private CheckBox ckpromociones;
+    private Button btnCrear;
+    private Button btnClear;
+    private Button btnMostrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
-                        .setAnchorView(R.id.fab).show();
-            }
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
         });
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+
+        editName = findViewById(R.id.editText_name);
+        editAge = findViewById((R.id.editTextAge));
+        grupoGeneros=findViewById(R.id.rg_generos);
+        ckterminos=findViewById(R.id.chk_terminos);
+        ckpromociones=findViewById(R.id.chkinformation);
+        btnCrear=findViewById(R.id.btnCrear);
+        btnClear=findViewById(R.id.btnBorrar);
+        btnMostrar=findViewById(R.id.btnMostrar);
+
+        spRol=findViewById(R.id.spRol);
+
+        ArrayAdapter<CharSequence> adapter =
+                ArrayAdapter.createFromResource(this,R.array.roles_array,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spRol.setAdapter(adapter);
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    public void crearCliente(View view){
+
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+    public void borrarCliente(View view){
+
     }
+
+    public void mostrarClientes(View view){}
 }
