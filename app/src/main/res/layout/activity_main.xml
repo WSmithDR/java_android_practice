@@ -107,5 +107,26 @@
             android:layout_height="wrap_content"
             android:text="@string/prom" />
 
+        <Button
+            android:id="@+id/btnCrear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="crearCliente"
+            android:text="@string/crear" />
+
+        <Button
+            android:id="@+id/btnBorrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="borrarCliente"
+            android:text="@string/borrar" />
+
+        <Button
+            android:id="@+id/btnMostrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="mostrarClientes"
+            android:text="@string/mostrar" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
