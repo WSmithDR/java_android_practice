@@ -1,4 +1,4 @@
-package com.example.java_android_practice.Modelo;
+package Modelo;
 
 public class Cliente {
     private String nombre;
@@ -6,6 +6,14 @@ public class Cliente {
     private String genero;
     private boolean aceptaTerminos;
     private boolean esperaPromociones;
+
+    public Cliente(String nombre, int edad, String genero, boolean aceptaTerminos, boolean esperaPromociones) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.genero = genero;
+        this.aceptaTerminos = aceptaTerminos;
+        this.esperaPromociones = esperaPromociones;
+    }
 
     public String getNombre() {
         return nombre;
@@ -51,20 +59,7 @@ public class Cliente {
     public String toString() {
         return "Cliente{" +
                 "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", genero='" + genero + '\'' +
-                ", aceptaTerminos=" + aceptaTerminos +
-                ", esperaPromociones=" + esperaPromociones +
+                ", edad=" + edad+
                 '}';
     }
-
-    public Cliente(String nombre, int edad, String genero, boolean aceptaTerminos, boolean esperaPromociones) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.genero = genero;
-        this.aceptaTerminos = aceptaTerminos;
-        this.esperaPromociones = esperaPromociones;
-    }
-
-
 }

@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "java_android_practice"
+rootProject.name = "FirstAppP5"
 include(":app")

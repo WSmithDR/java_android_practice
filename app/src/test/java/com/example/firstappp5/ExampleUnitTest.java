@@ -1,4 +1,4 @@
-package com.example.java_android_practice;
+package com.example.firstappp5;
 
 import org.junit.Test;
 

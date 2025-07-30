@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.java_android_practice"
-    compileSdk = 36
+    namespace = "com.example.firstappp5"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.java_android_practice"
+        applicationId = "com.example.firstappp5"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 

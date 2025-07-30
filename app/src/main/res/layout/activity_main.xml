@@ -9,8 +9,12 @@
 
     <LinearLayout
         android:id="@+id/idcontent"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         android:orientation="vertical"
         android:padding="25dp"
         android:paddingStart="25dp"
@@ -18,21 +22,24 @@
         android:paddingTop="25dp"
         android:paddingEnd="25dp"
         android:paddingRight="25dp"
-        android:paddingBottom="25dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="157dp"
+            android:layout_width="wrap_content"
+            android:layout_height="188dp"
             app:srcCompat="@drawable/newclient" />
 
         <TextView
             android:id="@+id/label_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name: "
+            android:layout_height="29dp"
+            android:text="Name:"
             android:textStyle="bold" />
 
         <EditText
@@ -40,93 +47,78 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="Name" />
 
         <TextView
-            android:id="@+id/label_age"
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Age: "
-            android:textStyle="bold" />
+            android:text="Age:" />
 
         <EditText
-            android:id="@+id/editTextAge"
+            android:id="@+id/editText_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="text"
+            android:text="Name" />
 
         <RadioGroup
             android:id="@+id/rg_generos"
             android:layout_width="match_parent"
-            android:layout_height="93dp">
+            android:layout_height="85dp">
 
-            <TextView
-                android:id="@+id/genero_label"
+            <RadioButton
+                android:id="@+id/radioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gender"
-                android:textStyle="bold" />
+                android:text="Masculino" />
 
             <RadioButton
-                android:id="@+id/rd_masculino"
+                android:id="@+id/radioButton3"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:text="@string/male" />
-
-            <RadioButton
-                android:id="@+id/rd_femenino"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:text="@string/female" />
-
+                android:layout_height="wrap_content"
+                android:text="Femenino" />
         </RadioGroup>
-
-        <TextView
-            android:id="@+id/spRol_tag"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rol"
-            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spRol"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/roles_array" />
+            android:layout_height="wrap_content" />
 
         <CheckBox
-            android:id="@+id/chk_terminos"
+            android:id="@+id/ck_terminos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/terminosAcepta" />
+            android:text="Acepto los términos y condiciones" />
 
         <CheckBox
-            android:id="@+id/chkinformation"
+            android:id="@+id/chkinformacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/prom" />
+            android:text="Quiero obtener información de promociones" />
 
         <Button
             android:id="@+id/btnCrear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="crearCliente"
-            android:text="@string/crear" />
+            android:text="Crear" />
 
         <Button
-            android:id="@+id/btnBorrar"
+            android:id="@+id/btnborrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="borrarCliente"
-            android:text="@string/borrar" />
+            android:onClick="Borrar"
+            android:text="Borrar" />
 
         <Button
             android:id="@+id/btnMostrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="mostrarClientes"
-            android:text="@string/mostrar" />
+            android:onClick="MostrarClientes"
+            android:text="Mostrar Cliente" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
