@@ -55,5 +55,30 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number" />
+
+        <RadioGroup
+            android:id="@+id/rg_generos"
+            android:layout_width="match_parent"
+            android:layout_height="93dp">
+
+            <TextView
+                android:id="@+id/genero_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gender"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rd_masculino"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:text="@string/male" />
+
+            <RadioButton
+                android:id="@+id/rd_femenino"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="@string/female" />
+        </RadioGroup>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
