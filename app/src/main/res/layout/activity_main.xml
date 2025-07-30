@@ -95,5 +95,17 @@
             android:layout_height="wrap_content"
             android:entries="@array/roles_array" />
 
+        <CheckBox
+            android:id="@+id/chk_terminos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/terminosAcepta" />
+
+        <CheckBox
+            android:id="@+id/chkinformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prom" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
