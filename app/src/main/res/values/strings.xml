@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FirstAppP5</string>
+    <string-array name="roles_array">
+        <item>VIP</item>
+        <item>Estandar</item>
+    </string-array>
+    <string name="name">Name:</string>
+
+</resources>
