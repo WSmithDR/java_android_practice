@@ -5,4 +5,9 @@
     <string name="gender">Gender: </string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="rol">Rol: </string>
+    <string-array name="roles_array">
+        <item>VIP</item>
+        <item>Estandar</item>
+    </string-array>
 </resources>

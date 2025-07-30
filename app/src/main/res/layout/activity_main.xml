@@ -20,7 +20,7 @@
         android:paddingRight="25dp"
         android:paddingBottom="25dp"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="0dp">
 
         <ImageView
             android:id="@+id/imageView"
@@ -79,6 +79,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:text="@string/female" />
+
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/spRol_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rol"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spRol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/roles_array" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
