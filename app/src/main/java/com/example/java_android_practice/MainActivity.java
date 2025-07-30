@@ -156,8 +156,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void borrarCliente(View view){
-
         editName.setText("");
+        aditAge.setText("");
+        groupGender.clearCheck();
+        ckterminos.setChecked(false);
+        ckpromociones.setChecked(false);
+        spRol.setSelection(0);
 
     }
 
