@@ -117,7 +117,14 @@ public class MainActivity extends AppCompatActivity {
         btnCrear=findViewById(R.id.btnCrear);
         btnClear=findViewById(R.id.btnBorrar);
         btnMostrar=findViewById(R.id.btnMostrar);
+
         spRol=findViewById(R.id.spRol);
+
+        ArrayAdapter<CharSequence> adapter =
+                ArrayAdapter.createFromResource(this,R.array.roles_array,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spRol.setAdapter(adapter);
 
     }
 }
