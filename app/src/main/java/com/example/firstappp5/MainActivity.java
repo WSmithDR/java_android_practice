@@ -76,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Borrar(View view){
        editName.setText("");
+       editAge.setText("");
+       grupoGeneros.clearCheck();
+       ckterminos.setChecked(false);
+       ckpromociones.setChecked(false);
+       spRol.setSelection(0);
     }
     public void MostrarClientes(View view){
 
