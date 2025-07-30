@@ -1,6 +1,7 @@
 package com.example.java_android_practice;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -107,5 +108,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        editName = findViewById(R.id.editText_name);
+        editAge = findViewById((R.id.editTextAge));
+        grupoGeneros=findViewById(R.id.rg_generos);
+        ckterminos=findViewById(R.id.chk_terminos);
+        ckpromociones=findViewById(R.id.chkinformation);
+        btnCrear=findViewById(R.id.btnCrear);
+        btnClear=findViewById(R.id.btnBorrar);
+        btnMostrar=findViewById(R.id.btnMostrar);
+        spRol=findViewById(R.id.spRol);
+
     }
 }
