@@ -1,5 +1,6 @@
 package com.example.firstappp5;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import Modelo.Cliente;
 
@@ -72,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
             String genero=rdSeleccionado.getText().toString();
             Cliente cliente=new Cliente(name,edad,genero,terminosAceptados,PromocionesAceptadas);
             Toast.makeText(this,"Cliente nuevo"+ cliente.getNombre(),Toast.LENGTH_SHORT).show();
+
+            GuardarCliente(cliente.toString());
         }
     }
     public void Borrar(View view){
@@ -83,6 +91,20 @@ public class MainActivity extends AppCompatActivity {
        spRol.setSelection(0);
     }
     public void MostrarClientes(View view){
+        Intent intent= new Intent(this, MainActivity2.class);
+        startActivity(intent);
 
     }
+    public void GuardarCliente(String datosCliente){
+        File f=new File(getFilesDir(),"/Cliente.txt");
+        try(BufferedWriter writer= new BufferedWriter(new FileWriter(f,true))){
+            writer.write(datosCliente);
+            writer.newLine();
+
+        }catch (IOException e){
+            System.out.println(e.getStackTrace());
+        }
+        System.out.println(datosCliente);
+    }
+
 }
