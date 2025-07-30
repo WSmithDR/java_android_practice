@@ -130,12 +130,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void crearCliente(View view){
+        String name = editName.getText().trim();
+        String ageStr = editAge.getText().toString().trim();
+
+        int selectedGenderId = grupoGeneros.getCheckedRadioButtonId();
+        RadioButton rdseleccionado = finViewById(selectedGenderId);
+
+
+        boolean terminosaceptados = ckterminos.isChecked();
+        boolean promocionesaceptadas = ckpromociones.isChecked();
+
+        String rol = spRol.getSelectedItem().toString();
+
+        /*validaciones*/
+
+        if(name.isEmpty() || ageStr.isEmpty() || rdseleccionado==null || !terminosaceptados || !promocionesaceptadas){
+            android.widget.Toast.makeText(this, "Por favor llene todos los  campos y acepte los terminos y condiciones", Toast.LENGTH_SHORT).show();
+        }else{
+            int edad = Integer.parseInt(ageStr);
+            String genero = rdseleccionado.getText().toString();
+            Cliente c = new Cliente(name,edad,genero,terminosaceptados,promocionesaceptadas);
+            android.widget.Toast.makeText(this, "Cliente nuevo "+c.getNombre(), Toast.LENGTH_SHORT).show();
+        }
 
     }
 
     public void borrarCliente(View view){
 
+        editName.setText("");
+
     }
 
-    public void mostrarClientes(View view){}
+    public void mostrarClientes(View view){
+
+    }
 }
