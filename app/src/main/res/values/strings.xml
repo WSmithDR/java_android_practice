@@ -1,18 +1,9 @@
 <resources>
-    <string name="app_name">java_andoid_practice</string>
-    <string name="name">Name:</string>
-    <string name="age">Age:</string>
-    <string name="genero">Genero:</string>
-    <string name="masculino">Masculino</string>
-    <string name="femenino">Femenino</string>
-    <string name="rol">Rol:</string>
+    <string name="app_name">My Application</string>
+
     <string-array name="roles_array">
-        <item>VIP</item>
-        <item>STANDAR</item>
+        <item>VIP</item>>
+        <item>Estandar</item>>
     </string-array>
-    <string name="terminosAcepta">Acepto los terminos y condiciones</string>
-    <string name="prom">Quiero obtener informacion de promociones</string>
-    <string name="crear">Crear</string>
-    <string name="borrar">Borrar</string>
-    <string name="mostrar">Mostrar clientes creados</string>
+
 </resources>

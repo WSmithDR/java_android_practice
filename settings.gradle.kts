@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "java_andoid_practice"
+rootProject.name = "My Application"
 include(":app")
  
