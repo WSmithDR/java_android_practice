@@ -1,6 +1,7 @@
 package com.example.java_andoid_practice;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -119,5 +120,9 @@ public class MainActivity extends AppCompatActivity {
         btnBorrar = findViewById(R.id.btnBorrar);
         btnMostrar = findViewById(R.id.btnMostrar);
         spRol=findViewById(R.id.spRol);
+
+        ArrayAdapter<CharSequence> adapter =
+                ArrayAdapter.createFromResource(this,R.array.roles_array, android.R.layout.simple_spinner_item);
+        spRol.setAdapter(adapter);
     }
 }
