@@ -110,6 +110,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
+        editTextName = findViewById(R.id.editText_name);
+        editTextAge = findViewById(R.id.editText_age);
+        grupoGeneros = findViewById(R.id.rg_generos);
+        chkTerminos = findViewById(R.id.chk_terminos);
+        chkInformacion = findViewById(R.id.chkinformacion);
+        btnCrear = findViewById(R.id.btnCrear);
+        btnBorrar = findViewById(R.id.btnBorrar);
+        btnMostrar = findViewById(R.id.btnMostrar);
+        spRol=findViewById(R.id.spRol);
     }
 }
