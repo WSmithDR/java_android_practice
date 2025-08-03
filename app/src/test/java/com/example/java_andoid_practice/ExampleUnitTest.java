@@ -1,4 +1,4 @@
-package com.example.java_android_practice;
+package com.example.java_andoid_practice;
 
 import org.junit.Test;
 

@@ -7,126 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/idcontent"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        android:padding="25dp"
-        android:paddingStart="25dp"
-        android:paddingLeft="25dp"
-        android:paddingTop="25dp"
-        android:paddingEnd="25dp"
-        android:paddingRight="25dp"
-        android:paddingBottom="25dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="0dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="157dp"
-            app:srcCompat="@drawable/newclient" />
-
-        <TextView
-            android:id="@+id/label_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name: "
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editText_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text" />
-
-        <TextView
-            android:id="@+id/label_age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Age: "
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editTextAge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
-
-        <RadioGroup
-            android:id="@+id/rg_generos"
-            android:layout_width="match_parent"
-            android:layout_height="93dp">
-
-            <TextView
-                android:id="@+id/genero_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/gender"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/rd_masculino"
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:text="@string/male" />
-
-            <RadioButton
-                android:id="@+id/rd_femenino"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:text="@string/female" />
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/spRol_tag"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rol"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spRol"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/roles_array" />
-
-        <CheckBox
-            android:id="@+id/chk_terminos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/terminosAcepta" />
-
-        <CheckBox
-            android:id="@+id/chkinformation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/prom" />
-
-        <Button
-            android:id="@+id/btnCrear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="crearCliente"
-            android:text="@string/crear" />
-
-        <Button
-            android:id="@+id/btnBorrar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="borrarCliente"
-            android:text="@string/borrar" />
-
-        <Button
-            android:id="@+id/btnMostrar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="mostrarClientes"
-            android:text="@string/mostrar" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
