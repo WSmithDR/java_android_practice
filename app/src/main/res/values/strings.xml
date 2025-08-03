@@ -10,4 +10,6 @@
         <item>VIP</item>
         <item>STANDAR</item>
     </string-array>
+    <string name="terminosAcepta">Acepto los terminos y condiciones</string>
+    <string name="prom">Quiero obtener informacion de promociones</string>
 </resources>
