@@ -5,4 +5,9 @@
     <string name="genero">Genero:</string>
     <string name="masculino">Masculino</string>
     <string name="femenino">Femenino</string>
+    <string name="rol">Rol:</string>
+    <string-array name="roles_array">
+        <item>VIP</item>
+        <item>STANDAR</item>
+    </string-array>
 </resources>
