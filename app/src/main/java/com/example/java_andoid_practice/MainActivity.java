@@ -1,6 +1,7 @@
 package com.example.java_andoid_practice;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -124,5 +125,17 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter =
                 ArrayAdapter.createFromResource(this,R.array.roles_array, android.R.layout.simple_spinner_item);
         spRol.setAdapter(adapter);
+    }
+
+    public void crearCliente(View view){
+
+    }
+
+    public void borrar(View view){
+
+    }
+
+    public void mostrarClientes(View view){
+
     }
 }
