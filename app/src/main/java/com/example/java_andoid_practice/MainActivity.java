@@ -1,6 +1,7 @@
 package com.example.java_andoid_practice;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -20,6 +21,34 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spRol;
     private CheckBox chkTerminos;
     private CheckBox chkInformacion;
+    private Button btnCrear;
+    private Button btnBorrar;
+
+    public Button getBtnCrear() {
+        return btnCrear;
+    }
+
+    public void setBtnCrear(Button btnCrear) {
+        this.btnCrear = btnCrear;
+    }
+
+    public Button getBtnBorrar() {
+        return btnBorrar;
+    }
+
+    public void setBtnBorrar(Button btnBorrar) {
+        this.btnBorrar = btnBorrar;
+    }
+
+    public Button getBtnMostrar() {
+        return btnMostrar;
+    }
+
+    public void setBtnMostrar(Button btnMostrar) {
+        this.btnMostrar = btnMostrar;
+    }
+
+    private Button btnMostrar;
 
     public EditText getEditTextName() {
         return editTextName;
@@ -80,5 +109,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
     }
 }
