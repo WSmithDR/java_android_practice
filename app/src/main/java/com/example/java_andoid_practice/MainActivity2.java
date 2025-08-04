@@ -10,7 +10,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.java_andoid_practice.models.Cliente;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Array;
+import java.util.ArrayList;
+
 public class MainActivity2 extends AppCompatActivity {
+    ArrayList<Cliente> listaClientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +32,7 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        cargarClientes();
     }
 
     public void volverPrincipal(View view){
@@ -31,5 +42,27 @@ public class MainActivity2 extends AppCompatActivity {
 
     public void salir(View view){
         finishAffinity();
+    }
+
+    private void cargarClientes(){
+        listaClientes = new ArrayList<>();
+        File f = new File(getFilesDir(),"/Clientes.txt");
+
+        try(BufferedReader br = new BufferedReader(new FileReader(f))){
+        String line = null;
+        while((line=br.readLine())!=null){
+            System.out.println(line);
+            String datos[] = line.split(",");
+            String nombre = datos[0];
+            int edad = Integer.parseInt(datos[1]);
+            String genero = datos[2];
+            boolean terminos = Boolean.parseBoolean(datos[3]);
+            boolean promociones = Boolean.parseBoolean(datos[4]);
+            listaClientes.add(new Cliente(nombre,edad,genero,terminos,promociones));
+        }
+        System.out.println(listaClientes.toString());
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }
