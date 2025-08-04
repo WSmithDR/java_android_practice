@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -11,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -130,7 +133,19 @@ public class MainActivity extends AppCompatActivity {
 
         newSpinner.setAdapter(spinnerAdapter);
         contenido.addView(newSpinner);
-    }
+
+        newSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int positionNewSpinner, long l) {
+                if(positionNewSpinner != 0){
+                    llenarDatos(indiceSelspRol, positionNewSpinner);
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    };
 
     /***
      * Este metodo crear los textviewsm imageview y button y los agrega al linearlayout
@@ -138,6 +153,63 @@ public class MainActivity extends AppCompatActivity {
      * @param indiceSelnewSpinner
      */
     private void llenarDatos(int indiceSelspRol, int indiceSelnewSpinner) {
+        contenido.removeViews(1,contenido.getChildCount()-1);
+        TextView textView1 = new TextView(this);
+        TextView textView2 = new TextView(this);
+        ImageView imageView = new ImageView(this);
+        Button buttonSalir = new Button(this);
+        buttonSalir.setText("Salir");
+        buttonSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
+            }
 
-    }
+        });
+
+        // Configurar las propiedades del botón
+        LinearLayout.LayoutParams layoutParams = new
+                LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,// Ancho del botón se ajusta al contenido
+                LinearLayout.LayoutParams.WRAP_CONTENT // Alto del botón se ajusta al contenido
+        );
+        layoutParams.gravity = Gravity.CENTER; // Centrar el botón horizontalmente
+        buttonSalir.setLayoutParams(layoutParams);
+        buttonSalir.setBackground(ContextCompat.getDrawable(this, R.drawable.rounded_button));
+        buttonSalir.setTextColor(Color.WHITE);
+
+        textView1.setPadding(16,36,0,16);
+        textView2.setPadding(16,36,0,16);
+
+        switch (indiceSelspRol) {
+            case 1:
+                Movil selecttedMovil = moviles.get(indiceSelnewSpinner);
+                textView1.setText("Nombre: " + selecttedMovil.getNombre());
+                textView2.setText("Sistema Operativo: " + selecttedMovil.getSistemaOperativo());
+                imageView.setImageResource(R.drawable.phone1);
+                break;
+            case 2:
+                Tablet selectedTablet = tablets.get(indiceSelnewSpinner);
+                textView1.setText("Nombre: " + selectedTablet.getNombre());
+                textView2.setText("Tamaño de Pantalla: " + selectedTablet.getTamanoPantalla());
+                imageView.setImageResource(R.drawable.phone1);
+                break;
+            case 3:
+                Smartwatch selecttedSmartwatch = smartwatches.get(indiceSelnewSpinner);
+                textView1.setText("Nombre: " + selecttedSmartwatch.getNombre());
+                textView2.setText("Tiene GPS?: " + (selecttedSmartwatch.isTieneGPS() ? "Sí" : "No"));
+                imageView.setImageResource(R.drawable.phone1);
+                break;
+
+            default:
+                return;
+        }
+
+        contenido.addView(textView1);
+        contenido.addView(textView2);
+        contenido.addView(imageView);
+        contenido.addView(buttonSalir);
+
+
+    };
 }
