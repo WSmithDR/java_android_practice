@@ -156,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,String.format("Cliente nuevo %s",c.getNombre()),Toast.LENGTH_SHORT).show();
             guardarCliente(c.toString());
             presentarClientes();
+            borrar(view);
         }
 
     }
@@ -183,7 +184,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void borrar(View view){
-
+        editTextName.setText("");
+        editTextAge.setText("");
+        grupoGeneros.clearCheck();
+        chkTerminos.setChecked(false);
+        chkInformacion.setChecked(false);
+        spRol.setSelection(0);
     }
 
     public void mostrarClientes(View view){
