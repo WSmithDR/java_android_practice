@@ -3,6 +3,9 @@ package com.example.java_andoid_practice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +24,7 @@ import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
     ArrayList<Cliente> listaClientes;
+    private TableLayout tableLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,12 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        
+        // Inicializar tableLayout con la vista del layout
+        tableLayout = findViewById(R.id.tablaClientes);
+        
         cargarClientes();
+        mostrarDatosClientes();
     }
 
     public void volverPrincipal(View view){
@@ -64,5 +73,36 @@ public class MainActivity2 extends AppCompatActivity {
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    private void mostrarDatosClientes(){
+        TableRow.LayoutParams params = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1);
+        
+        // Crear fila de encabezado
+        TableRow tHeader = new TableRow(this);
+        tHeader.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+        TextView titNombre = new TextView(this);
+        titNombre.setText("Nombre");
+        titNombre.setLayoutParams(params);
+        titNombre.setPadding(5, 5, 5, 5);
+        titNombre.setBackgroundResource(android.R.drawable.edit_text);
+
+        TextView titEdad = new TextView(this);
+        titEdad.setText("Edad");
+        titEdad.setLayoutParams(params);
+        titEdad.setPadding(5, 5, 5, 5);
+        titEdad.setBackgroundResource(android.R.drawable.edit_text);
+
+        tHeader.addView(titNombre);
+        tHeader.addView(titEdad);
+
+        // Limpiar la tabla antes de agregar nuevos elementos
+        tableLayout.removeAllViews();
+        
+        // Agregar encabezado
+        tableLayout.addView(tHeader);
+        
+
     }
 }
