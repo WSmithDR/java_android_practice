@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">U6C3_ConsultaDispositivos</string>
+    <string name="titulo">Consulta de dispositivos</string>
+    <string-array name="device_types">
+        <item>Seleccione un tipo</item>
+        <item>Móvil</item>
+        <item>Tablet</item>
+        <item>Smartwatch</item>
+    </string-array>
+</resources>
