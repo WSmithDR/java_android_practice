@@ -4,13 +4,11 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", genero='" + genero + '\'' +
-                ", aceptaTerminos=" + aceptaTerminos +
-                ", esperaPromociones=" + esperaPromociones +
-                '}';
+        return nombre + ',' +
+                edad + ','+
+                genero + ',' +
+                aceptaTerminos +','+
+                esperaPromociones;
     }
 
     public Cliente(String nombre, int edad, String genero, boolean aceptaTerminos, boolean esperaPromociones) {

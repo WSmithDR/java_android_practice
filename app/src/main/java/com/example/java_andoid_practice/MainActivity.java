@@ -9,12 +9,22 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.java_andoid_practice.models.Cliente;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editTextName;
@@ -128,7 +138,48 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void crearCliente(View view){
+        String name = editTextName.getText().toString().trim();
+        String ageStr =editTextAge.getText().toString().trim();
+        int selectedGenderId = grupoGeneros.getCheckedRadioButtonId();
+        RadioButton rdseleccionado = findViewById(selectedGenderId);
+        boolean terminosAceptados = chkTerminos.isChecked();
+        boolean promocionesAceptadas = chkInformacion.isChecked();
+        String rol = spRol.getSelectedItem().toString();
 
+        //validaciones
+        if(name.isEmpty() || ageStr.isEmpty() || rdseleccionado==null || !terminosAceptados || !promocionesAceptadas){
+            Toast.makeText(this,"Por favor llene todos los campos y acepte los terminos y condiciones.",Toast.LENGTH_SHORT).show();
+        }else{
+            int edad = Integer.parseInt(ageStr);
+            String genero = rdseleccionado.getText().toString();
+            Cliente c = new Cliente(name, edad,genero,terminosAceptados,promocionesAceptadas);
+            Toast.makeText(this,String.format("Cliente nuevo %s",c.getNombre()),Toast.LENGTH_SHORT).show();
+            guardarCliente(c.toString());
+            presentarClientes();
+        }
+
+    }
+
+    public void guardarCliente(String line){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(new File(getFilesDir(),"/Clientes.txt"),true))){
+            bw.write(line+"\n");
+            System.out.println("Cliente guardado");
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void presentarClientes(){
+        try(BufferedReader br = new BufferedReader(new FileReader(new File(getFilesDir(),"/Clientes.txt")))){
+            String line = null;
+            while((line = br.readLine())!=null){
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void borrar(View view){
