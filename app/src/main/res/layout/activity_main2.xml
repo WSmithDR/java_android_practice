@@ -27,7 +27,7 @@
         <TableLayout
             android:id="@+id/tablaClientes"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="525dp">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -45,5 +45,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </TableLayout>
+
+        <Button
+            android:id="@+id/volverBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="volverPrincipal"
+            android:text="@string/volver" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
