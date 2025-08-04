@@ -28,4 +28,8 @@ public class MainActivity2 extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void salir(View view){
+        finishAffinity();
+    }
 }

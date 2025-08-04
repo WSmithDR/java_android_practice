@@ -52,5 +52,12 @@
             android:layout_height="wrap_content"
             android:onClick="volverPrincipal"
             android:text="@string/volver" />
+
+        <Button
+            android:id="@+id/volverBtn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="salir"
+            android:text="salir" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

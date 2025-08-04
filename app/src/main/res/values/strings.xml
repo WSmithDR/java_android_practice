@@ -17,4 +17,5 @@
     <string name="mostrar">Mostrar clientes creados</string>
     <string name="titulo">Lista de Clientes</string>
     <string name="volver">Volver</string>
+    <string name="salir">Salir</string>
 </resources>
