@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         spTipo = findViewById(R.id.spTipo);
         contenido = findViewById(R.id.contenidoDinamico);
-        contenido.setPadding(0,36,0,16);
+        contenido.setPadding(0, 36, 0, 16);
         // inicializa el spinner con los tipos dispositivos inteligentes usando el array de strings R.array.device_types que se definió en el archivo strings.xml
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.device_types, android.R.layout.simple_spinner_item);//crea el adaptador con el array de strings
@@ -58,7 +58,18 @@ public class MainActivity extends AppCompatActivity {
         cargarDatos();
 
         // define item selected listener para el spinner
+        spTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position != 0) {
+                    agregarSegundoSpinner(position);
+                }
+            }
+            @Override
+            public void onNothingSelected (AdapterView < ? > parent){
 
+            }
+        });
     }
 
 
