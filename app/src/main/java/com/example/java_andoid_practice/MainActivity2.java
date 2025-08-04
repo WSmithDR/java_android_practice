@@ -102,7 +102,26 @@ public class MainActivity2 extends AppCompatActivity {
         
         // Agregar encabezado
         tableLayout.addView(tHeader);
-        
+
+         // Agregar filas de datos de clientes
+        for (Cliente cliente : listaClientes) {
+            TableRow row = new TableRow(this);
+
+            TextView nombre = new TextView(this);
+            nombre.setText(cliente.getNombre());
+            nombre.setLayoutParams(params);
+            nombre.setPadding(5, 5, 5, 5);
+
+            TextView edad = new TextView(this);
+            edad.setText(String.valueOf(cliente.getEdad()));
+            edad.setLayoutParams(params);
+            edad.setPadding(5, 5, 5, 5);
+
+            row.addView(nombre);
+            row.addView(edad);
+
+            tableLayout.addView(row);
+        }
 
     }
 }
