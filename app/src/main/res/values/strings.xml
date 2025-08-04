@@ -15,4 +15,5 @@
     <string name="crear">Crear</string>
     <string name="borrar">Borrar</string>
     <string name="mostrar">Mostrar clientes creados</string>
+    <string name="titulo">Lista de Clientes</string>
 </resources>

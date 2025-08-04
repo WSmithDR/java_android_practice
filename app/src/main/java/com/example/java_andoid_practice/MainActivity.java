@@ -1,5 +1,6 @@
 package com.example.java_andoid_practice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -193,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mostrarClientes(View view){
-
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
     }
 }
