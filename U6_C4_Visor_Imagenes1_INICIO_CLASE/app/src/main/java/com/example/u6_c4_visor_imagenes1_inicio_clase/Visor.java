@@ -69,6 +69,10 @@ public class Visor extends AppCompatActivity {
                 imageView.setImageURI(uri);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setImageURI(uri);
+                imageView.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
 
                 TextView textView = new TextView(this);
                 textView.setText(texto);

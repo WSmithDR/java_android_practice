@@ -108,5 +108,13 @@ public class MainActivity extends AppCompatActivity {
                 imagePickerLauncher.launch(intent);
             }
         });
+
+        btnMostrarListado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Visor.class);
+                startActivity(intent);
+            }
+        });
     }
 }
