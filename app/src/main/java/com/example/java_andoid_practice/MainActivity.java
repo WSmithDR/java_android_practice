@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             int edad = Integer.parseInt(ageStr);
             String genero = rdseleccionado.getText().toString();
-            Cliente c = new Cliente(name, edad,genero,terminosAceptados,promocionesAceptadas);
+            Cliente c = new Cliente(name, edad,genero,rol, terminosAceptados,promocionesAceptadas);
             Toast.makeText(this,String.format("Cliente nuevo %s",c.getNombre()),Toast.LENGTH_SHORT).show();
             guardarCliente(c.toString());
             presentarClientes();

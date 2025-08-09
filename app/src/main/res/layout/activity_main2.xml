@@ -27,24 +27,7 @@
         <TableLayout
             android:id="@+id/tablaClientes"
             android:layout_width="match_parent"
-            android:layout_height="525dp">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </TableLayout>
+            android:layout_height="525dp"/>
 
         <Button
             android:id="@+id/volverBtn"

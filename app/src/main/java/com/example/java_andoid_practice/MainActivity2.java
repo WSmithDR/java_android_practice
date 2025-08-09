@@ -3,6 +3,9 @@ package com.example.java_andoid_practice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +23,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
-    ArrayList<Cliente> listaClientes;
+    private ArrayList<Cliente> listaClientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         cargarClientes();
     }
 
@@ -56,13 +60,15 @@ public class MainActivity2 extends AppCompatActivity {
             String nombre = datos[0];
             int edad = Integer.parseInt(datos[1]);
             String genero = datos[2];
-            boolean terminos = Boolean.parseBoolean(datos[3]);
-            boolean promociones = Boolean.parseBoolean(datos[4]);
-            listaClientes.add(new Cliente(nombre,edad,genero,terminos,promociones));
+            String rol = datos[3];
+            boolean terminos = Boolean.parseBoolean(datos[4]);
+            boolean promociones = Boolean.parseBoolean(datos[5]);
+            listaClientes.add(new Cliente(nombre,edad,genero,rol, terminos,promociones));
         }
         System.out.println(listaClientes.toString());
         }catch(IOException e){
             e.printStackTrace();
         }
     }
+
 }

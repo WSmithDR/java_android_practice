@@ -1,24 +1,23 @@
 package com.example.java_andoid_practice.models;
 
 public class Cliente {
+    private String nombre;
+    private int edad;
+    private String genero;
+    private String rol;
+    private boolean aceptaTerminos;
+    private boolean esperaPromociones;
 
-    @Override
-    public String toString() {
-        return nombre + ',' +
-                edad + ','+
-                genero + ',' +
-                aceptaTerminos +','+
-                esperaPromociones;
-    }
 
-    public Cliente(String nombre, int edad, String genero, boolean aceptaTerminos, boolean esperaPromociones) {
+
+    public Cliente(String nombre, int edad, String genero, String rol, boolean aceptaTerminos, boolean esperaPromociones) {
         this.nombre = nombre;
         this.edad = edad;
         this.genero = genero;
+        this.rol=rol;
         this.aceptaTerminos = aceptaTerminos;
         this.esperaPromociones = esperaPromociones;
     }
-    private String nombre;
 
     public int getEdad() {
         return edad;
@@ -60,8 +59,20 @@ public class Cliente {
         this.aceptaTerminos = aceptaTerminos;
     }
 
-    private int edad;
-    private String genero;
-    private boolean aceptaTerminos;
-    private boolean esperaPromociones;
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+    @Override
+    public String toString() {
+        return nombre + ',' +
+                edad + ','+
+                genero + ',' +
+                rol+","+
+                aceptaTerminos +','+
+                esperaPromociones;
+    }
 }
