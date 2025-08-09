@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -11,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -170,9 +173,9 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView = new ImageView(this);
         TextView textView1 = new TextView(this);
         TextView textView2 = new TextView(this);
-        Button salirBtn = new Button(this);
-        salirBtn.setText("SALIR");
-        salirBtn.setOnClickListener(
+        Button buttonSalir = new Button(this);
+        buttonSalir.setText("SALIR");
+        buttonSalir.setOnClickListener(
                 new View.OnClickListener(){
 
                     @Override
@@ -181,6 +184,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        // Configurar las propiedades del botón
+        LinearLayout.LayoutParams layoutParams = new
+                LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,// Ancho del botón se ajusta al contenido
+                LinearLayout.LayoutParams.WRAP_CONTENT // Alto del botón se ajusta al contenido
+        );
+        layoutParams.gravity = Gravity.CENTER; // Centrar el botón horizontalmente
+        buttonSalir.setLayoutParams(layoutParams);
+        buttonSalir.setBackground(ContextCompat.getDrawable(this,R.drawable.rounded_button));
+        buttonSalir.setTextColor(Color.WHITE);
 
         switch (indiceSelspRol){
             case 1:
@@ -241,6 +255,6 @@ public class MainActivity extends AppCompatActivity {
         contenido.addView(textView1);
         contenido.addView(textView2);
         contenido.addView(imageView);
-        contenido.addView(salirBtn);
+        contenido.addView(buttonSalir);
     }
 }
