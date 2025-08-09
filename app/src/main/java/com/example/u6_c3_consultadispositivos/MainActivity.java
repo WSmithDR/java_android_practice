@@ -168,21 +168,66 @@ public class MainActivity extends AppCompatActivity {
     private void llenarDatos(int indiceSelspRol, int indiceSelnewSpinner) {
         contenido.removeViews(1, contenido.getChildCount()-1);
         ImageView imageView = new ImageView(this);
-
+        TextView textView1 = new TextView(this);
+        TextView textView2 = new TextView(this);
         switch (indiceSelspRol){
             case 1:
+                Movil movil = moviles.get(indiceSelnewSpinner);
                 imageView.setImageResource(R.drawable.phone1);
+                textView1.setText(
+                        String.format(
+                                "Nombre dispositivo: %s"
+                                ,movil.getNombre()
+                                )
+                );
+
+                textView2.setText(
+                        String.format(
+                                "Sistema Operativo: %s",
+                                movil.getSistemaOperativo()
+                        )
+                );
                 break;
             case 2:
+                Tablet tablet = tablets.get(indiceSelnewSpinner);
                 imageView.setImageResource(R.drawable.tab1);
+                textView1.setText(
+                        String.format(
+                                "Nombre dispositivo: %s"
+                                ,tablet.getNombre()
+                        )
+                );
+
+                textView2.setText(
+                        String.format(
+                                "Tamanio pantalla: %d"
+                                ,tablet.getTamanoPantalla()
+                        )
+                );
                 break;
             case 3:
+                Smartwatch sw = smartwatches.get(indiceSelnewSpinner);
                 imageView.setImageResource(R.drawable.sm1);
+                textView1.setText(
+                        String.format(
+                                "Nombre dispositivo: %s"
+                                ,sw.getNombre()
+                        )
+                );
+
+                textView2.setText(
+                        String.format(
+                                "Tiene GPS?: %s"
+                                ,sw.isTieneGPS()?"Si":"No"
+                        )
+                );
                 break;
             default:
                 return;
         }
 
+        contenido.addView(textView1);
+        contenido.addView(textView2);
         contenido.addView(imageView);
     }
 }
