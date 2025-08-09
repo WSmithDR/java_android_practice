@@ -170,6 +170,18 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView = new ImageView(this);
         TextView textView1 = new TextView(this);
         TextView textView2 = new TextView(this);
+        Button salirBtn = new Button(this);
+        salirBtn.setText("SALIR");
+        salirBtn.setOnClickListener(
+                new View.OnClickListener(){
+
+                    @Override
+                    public void onClick(View v) {
+                        finishAffinity();
+                    }
+                }
+        );
+
         switch (indiceSelspRol){
             case 1:
                 Movil movil = moviles.get(indiceSelnewSpinner);
@@ -229,5 +241,6 @@ public class MainActivity extends AppCompatActivity {
         contenido.addView(textView1);
         contenido.addView(textView2);
         contenido.addView(imageView);
+        contenido.addView(salirBtn);
     }
 }
