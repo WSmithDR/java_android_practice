@@ -142,6 +142,22 @@ public class MainActivity extends AppCompatActivity {
 
         newSpinner.setAdapter(spinnerAdapter);
         contenido.addView(newSpinner);
+
+        newSpinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if(position!=0){
+                            llenarDatos(indiceSelspRol,position);
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                }
+        );
     }
 
     /***
@@ -150,6 +166,10 @@ public class MainActivity extends AppCompatActivity {
      * @param indiceSelnewSpinner
      */
     private void llenarDatos(int indiceSelspRol, int indiceSelnewSpinner) {
-
+        Toast.makeText(
+                this,
+                String.format("Opcion seleccionada: %d-%d",indiceSelspRol,indiceSelnewSpinner),
+                Toast.LENGTH_SHORT
+                ).show();
     }
 }
