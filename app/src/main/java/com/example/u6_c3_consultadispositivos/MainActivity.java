@@ -166,10 +166,23 @@ public class MainActivity extends AppCompatActivity {
      * @param indiceSelnewSpinner
      */
     private void llenarDatos(int indiceSelspRol, int indiceSelnewSpinner) {
-        Toast.makeText(
-                this,
-                String.format("Opcion seleccionada: %d-%d",indiceSelspRol,indiceSelnewSpinner),
-                Toast.LENGTH_SHORT
-                ).show();
+        contenido.removeViews(1, contenido.getChildCount()-1);
+        ImageView imageView = new ImageView(this);
+
+        switch (indiceSelspRol){
+            case 1:
+                imageView.setImageResource(R.drawable.phone1);
+                break;
+            case 2:
+                imageView.setImageResource(R.drawable.tab1);
+                break;
+            case 3:
+                imageView.setImageResource(R.drawable.sm1);
+                break;
+            default:
+                return;
+        }
+
+        contenido.addView(imageView);
     }
 }
