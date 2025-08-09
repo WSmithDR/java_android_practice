@@ -122,7 +122,26 @@ public class MainActivity extends AppCompatActivity {
      * @param indiceSelspRol
      */
     private void agregarSegundoSpinner (int indiceSelspRol) {
-        Toast.makeText(this,String.format("Position: %d",indiceSelspRol),Toast.LENGTH_SHORT).show();
+        contenido.removeAllViews();
+        Spinner newSpinner = new Spinner(this);
+        ArrayAdapter<? extends DispositivoInteligente> spinnerAdapter;
+
+        switch (indiceSelspRol){
+            case 1:
+                spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,moviles);
+                break;
+            case 2:
+                spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,tablets);
+                break;
+            case 3:
+                spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,smartwatches);
+                break;
+            default:
+                return;
+        }
+
+        newSpinner.setAdapter(spinnerAdapter);
+        contenido.addView(newSpinner);
     }
 
     /***
