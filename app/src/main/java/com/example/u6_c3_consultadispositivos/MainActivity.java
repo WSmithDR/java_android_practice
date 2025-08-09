@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Button;
 import android.graphics.Color;
+import android.widget.Toast;
 
 import Modelo.DispositivoInteligente;
 import Modelo.Movil;
@@ -58,6 +59,28 @@ public class MainActivity extends AppCompatActivity {
         cargarDatos();
 
         // define item selected listener para el spinner
+
+        spTipo.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener(){
+
+                    @Override
+                    public void onItemSelected(
+                            AdapterView<?> parent,
+                            View view,
+                            int position,
+                            long id
+                    ){
+                        if(position!=0){
+                            agregarSegundoSpinner(position);
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent){
+                        //Do nothing
+                    }
+                }
+        );
 
     }
 
@@ -99,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
      * @param indiceSelspRol
      */
     private void agregarSegundoSpinner (int indiceSelspRol) {
-
+        Toast.makeText(this,String.format("Position: %d",indiceSelspRol),Toast.LENGTH_SHORT).show();
     }
 
     /***
