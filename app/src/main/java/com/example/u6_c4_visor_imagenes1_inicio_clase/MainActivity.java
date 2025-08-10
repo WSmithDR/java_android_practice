@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnGuardarImagen;
 
     private Uri imageUriSeleccionada;
+
+    private Button mostrarListadoBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,6 +124,15 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-
+        this.mostrarListadoBtn = findViewById(R.id.btnMostrarListado);
+        this.mostrarListadoBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this,Visor.class);
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 }
