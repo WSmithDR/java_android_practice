@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "java_android_practice"
+rootProject.name = "U6C4_VentaProductos"
 include(":app")
+ 

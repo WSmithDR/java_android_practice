@@ -1,4 +1,4 @@
-package com.example.java_android_practice;
+package com.example.u6c4_ventaproductos;
 
 import org.junit.Test;
 
