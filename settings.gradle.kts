@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "java_android_practice"
+rootProject.name = "U6_C4_Visor_Imagenes1_INICIO_CLASE"
 include(":app")
+ 
