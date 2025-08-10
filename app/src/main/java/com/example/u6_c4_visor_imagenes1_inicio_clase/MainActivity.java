@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -51,7 +52,89 @@ public class MainActivity extends AppCompatActivity {
         btnGuardar = findViewById(R.id.btnGuardar);
         btnMostrarListado=findViewById(R.id.btnMostrarListado);
 
+        imagePickerLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                        // manejar aquí la imagen seleccionada
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        // Se asegura de que la actividad terminó correctamente (RESULT_OK) y que hay
+                        //datos disponibles (la imagen seleccionada)
+                        Uri originalUri = result.getData().getData();
+                        // Obtiene la URI original de la imagen que el usuario seleccionó en la galería.
+                        try {
+                            InputStream inputStream = getContentResolver().openInputStream(originalUri);
+                            //Abre un InputStream para leer los datos binarios de la imagen
+                            //desde la URI.
+                                    String nombreArchivo = "img_" + System.currentTimeMillis() + ".jpg";
+                                    //Crea un nombre único para la imagen usando la hora actual (en milisegundos).
+                            File file = new File(getFilesDir(), nombreArchivo);
+                            //Crea un archivo dentro del almacenamiento interno de la app.
+                            FileOutputStream outputStream = new FileOutputStream(file);
+                            //Abre un OutputStream para escribir en el archivo.
+                            byte[] buffer = new byte[1024];
+                            //Lee la imagen por partes (en bloques de 1024 bytes) y la escribe en el archivo local. Esto permite copiar
+                            //imágenes de cualquier tamaño.
+                            int length;
+                            while ((length = inputStream.read(buffer)) > 0) {
+                                outputStream.write(buffer, 0, length);
+                            }
+                            inputStream.close();
+                            outputStream.close();
+                            imageUriSeleccionada = Uri.fromFile(file);
+                            //Obtiene una URI segura para la imagen local
+                            imagenSeleccionada.setImageURI(imageUriSeleccionada);
+                            // y luego la muestra en el ImageView
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            Toast.makeText(this, "Error al copiar imagen", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
 
+
+        btnCargarImagen.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_PICK);
+                        intent.setType("image/*");
+                        imagePickerLauncher.launch(intent);
+                    }
+                }
+        );
+
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (imageUriSeleccionada != null) {
+                    String uri = imageUriSeleccionada.toString();
+                    String linea = "imagen," + uri + "\n";
+                    try {
+                        BufferedWriter writer = new BufferedWriter(
+                                new OutputStreamWriter(openFileOutput("eventodata.txt", MODE_APPEND))
+                        );
+                        writer.write(linea);
+                        writer.close();
+                        Toast.makeText(MainActivity.this, "Evento guardado", Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(MainActivity.this, "Error al guardar", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this, "Debe seleccionar una imagen antes de guardar",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnMostrarListado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Visor.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
