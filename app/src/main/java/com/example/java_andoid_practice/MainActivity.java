@@ -184,12 +184,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void borrar(View view){
-        editTextName.setText("");
-        editTextAge.setText("");
-        grupoGeneros.clearCheck();
-        chkTerminos.setChecked(false);
-        chkInformacion.setChecked(false);
-        spRol.setSelection(0);
     }
 
     public void mostrarClientes(View view){
